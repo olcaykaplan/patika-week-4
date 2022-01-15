@@ -8,6 +8,7 @@ import {
   Typography,
   Link,
   Button,
+  Alert,
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -23,7 +24,8 @@ const theme = createTheme();
 export default function SignInSide({ isFormSignIn }) {
   const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(isFormSignIn);
-  const isAuthenticated = useSelector((state) => state.auth).isAuthenticated;
+  const {isAuthenticated, errorMessage} = useSelector((state) => state.auth);
+  console.log("isAuthenticated",isAuthenticated)
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -93,6 +95,8 @@ export default function SignInSide({ isFormSignIn }) {
               autocomplete="off"
               textAlign="center"
             >
+           { errorMessage && <Alert severity="warning" sx={{my: 2}}>{errorMessage}</Alert>}
+
               {isSignIn ? <SignIn /> : <Signup />}
               <Link to="/" variant="body2" style={{ textDecoration: 'none' }}>
                 <Button

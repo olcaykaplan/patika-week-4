@@ -11,7 +11,7 @@ exports.logout = async (req, res) => {
     req.session.destroy()
     res.status(200).send({error:false})
   } catch (error) {
-    
+     
   }
 }
 exports.login = async (req, res) => {
@@ -34,22 +34,20 @@ exports.login = async (req, res) => {
           userAgent: req.headers['user-agent'], // google-chrome
         });
         res.cookie('jwt', token, { httpOnly: true, maxAge: TWO_HOURS  }); // multiply 1000 to convert to second to millisecond
+        // set sessions
         req.session.userID = user[0].id;
         req.session.userAgent= req.headers['user-agent']
         res.status(201).send({ error: false, user: user[0].fullName });
       } else {
-        res
-          .status(400)
-          .send({error: true, message:'Email or Password is wrong, please check your credentials.1 '});
+        res          
+          .send({error: true, message:'Email or Password is wrong, please check your credentials. '});
       }
     } else {
-      res
-        .status(400)
-        .send({error: true, message:'Email or Password is wrong, please check your credentials.2'});
+      res       
+        .send({error: true, message:'Email or Password is wrong, please check your credentials.'});
     }
   } catch (error) {
-    console.log(error);
-    res.status(400).send({error: true, message:'error, Oops! Something went wrong.'});
+    res.send({error: true, message:'error, Oops! Something went wrong.'});
   }
 };
 exports.createUser = async (req, res) => {
@@ -77,17 +75,15 @@ exports.createUser = async (req, res) => {
           }); 
           res.status(201).send({ user: userCreated[0].insertId });
         } else {
-          res
-            .status(400)
-            .send("Password doesn't match with password confirm field!");
+          res.send({error:true, message:"Password doesn't match with password confirm field!"});
         }
       } else {
-        res.status(400).send('The email is already exist!');
+        res.send({error:true, message:'The email is already exist!'});
       }
-    } else res.status(400).send("Required fields can't be empty!");
+    } else res.send({error:true, message:"Required fields can't be empty!"});
   } catch (error) {
     console.log(err);
-    res.status(400).send('error, user not created');
+    res.send({error:true, message:'error, user not created'});
   }
 };
 

@@ -6,7 +6,7 @@ export const signin = (formData) => async (dispatch) => {
     try {
         const { data } = await api.signIn(formData)
         if(data.error){
-            dispatch({type:LOGIN_ERROR});
+            dispatch({type:LOGIN_ERROR, data});
         }else{
             dispatch({ type: AUTH, data });                   
         } 
@@ -18,9 +18,14 @@ export const signin = (formData) => async (dispatch) => {
 export const signup = (formData) => async (dispatch) => {
     try {
         const { data } = await api.signUp(formData)
-        dispatch({ type: AUTH, data });
+        console.log("data:",data)
+        if(data.error){
+            dispatch({type:LOGIN_ERROR, data});
+        }else{
+            dispatch({ type: AUTH, data });                   
+        } 
     } catch (error) {
-        
+        console.log("!!error!!!",error)
     }
 }
 export const logout = () => async (dispatch) => {

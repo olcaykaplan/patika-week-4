@@ -7,7 +7,8 @@ import {
   
   var DEFAULT_STATE = {
         isAuthenticated:false,
-        fullName:''
+        fullName:'',
+        errorMessage: ''
   }
 
   const authReducer = (state = DEFAULT_STATE, action) => {
@@ -25,7 +26,11 @@ import {
          return state;
       case LOGIN_ERROR:
         localStorage.clear();
-         return state;
+         return {
+           ...state,
+           isAuthenticated:false,
+           errorMessage: action.data.message
+          };
       case REGISTER_ERROR:
         localStorage.clear();
          return state;
