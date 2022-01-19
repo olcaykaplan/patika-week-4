@@ -1,9 +1,9 @@
 
-const express = require('express');
+const express = require('express'); // Request, Response, NextFunction
 const router = express.Router()
 const api = require('./routes/index')
 require('dotenv').config();
-const app = express();
+const app = express(); // Express type
 const cors = require('cors')
 const conf = require('./config/conf')
 const cookieParser = require('cookie-parser')
@@ -11,6 +11,8 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 var mysql2 = require('mysql2/promise');
 const { options_local } = require('./config/conf');
+
+
 //Middleware
 app.use(express.json())
 app.use(cors({
@@ -34,8 +36,7 @@ app.use(session({
     }
 }));
 
-
 app.use(api)
 
-const PORT = process.env.PORT || 5000;
+const PORT: Number = parseInt(process.env.PORT as string) || 5000;
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))
