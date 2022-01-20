@@ -47,6 +47,7 @@ exports.login = async (req, res) => {
         .send({error: true, message:'Email or Password is wrong, please check your credentials.'});
     }
   } catch (error) {
+    console.log("error: ",error)
     res.send({error: true, message:'error, Oops! Something went wrong.'});
   }
 };

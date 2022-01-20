@@ -1,17 +1,17 @@
+import express from 'express';
+import api from './routes/index';
+import cors from 'cors';
+import 'dotenv/config'
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import expressMySqlSession from "express-mysql-session";
+const MySQLStore   = expressMySqlSession(session);
 
-const express = require('express'); // Request, Response, NextFunction
-const router = express.Router()
-const api = require('./routes/index')
-require('dotenv').config();
+import mysql2 from 'mysql2/promise';
+
+import { options_local } from './config/conf';
+
 const app = express(); // Express type
-const cors = require('cors')
-const conf = require('./config/conf')
-const cookieParser = require('cookie-parser')
-const session = require('express-session');
-const MySQLStore = require('express-mysql-session')(session);
-var mysql2 = require('mysql2/promise');
-const { options_local } = require('./config/conf');
-
 
 //Middleware
 app.use(express.json())
@@ -23,11 +23,11 @@ app.use(cookieParser())
 
 const TWO_HOURS = 1000 * 60 * 60 * 2;
 var connection = mysql2.createPool(options_local);
-var sessionStore = new MySQLStore({}, connection);
+var sessionStore = new MySQLStore({} , connection);
 
 app.use(session({
 	key: 'sessionCookie',
-	secret: process.env.SESSION_SECRET,
+	secret: process.env.SESSION_SECRET as string,
 	store: sessionStore,
 	resave: false,
 	saveUninitialized: false,
@@ -38,5 +38,5 @@ app.use(session({
 
 app.use(api)
 
-const PORT: Number = parseInt(process.env.PORT as string) || 5000;
+const PORT: Number = Number(process.env.PORT as string) || 5000;
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))

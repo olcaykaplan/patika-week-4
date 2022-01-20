@@ -3,7 +3,7 @@ const User = require('../models/User.js');
 require('dotenv').config();
 
 exports.checkUser = (req, res, next) => {
-  const token = req.cookies.jwt; // 123hbn12 jgub1n2m3 u12g3u1h2jb31
+  const token = req.cookies.jwt;
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
       if (err) {
@@ -25,17 +25,3 @@ exports.checkUser = (req, res, next) => {
     res.status(401).send({ error: true, message: 'You must login first!' });
   }
 };
-
-/*
-login et 
-kullanıcı yarat
-yukarıdaki işlemler başarılı olursa home page gönder ve menüleri düzenle
-logout işlemini yaptır,
-başarılı olmazsa login sayfasına gönder ancak error bas
-
-başarılı login olursa kullanıcıları listele
-
-vaktin kalırsa blog gireceği sayfayı oluştur, db oluşturmayı unutma
-kaydettir,
-
-*/
