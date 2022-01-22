@@ -6,12 +6,7 @@ const Home = () => {
   return (
     <Grid
       container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      xl={12}
+      item    
       justify="center"
       style={{
         height: '85vh',

@@ -26,7 +26,6 @@ const Header = () => {
     { title: 'Profile', action: 'profile' },
     { title: 'Logout', action: logout },
   ];
-
   const pages = isAuthenticated
     ? [
         { title: 'User List', path: '/users' },
@@ -127,9 +126,9 @@ const Header = () => {
               <Link
                 to={page.path}
                 style={{ textDecoration: 'none', color: 'white' }}
+                key={i}
               >
                 <Button
-                  key={i}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
@@ -169,7 +168,7 @@ const Header = () => {
                       textAlign="center"
                       variant="subtitle2"
                     >
-                      {fullName.toUpperCase()}
+                      {fullName}
                     </Typography>
                   </MenuItem>
                   <hr/>
