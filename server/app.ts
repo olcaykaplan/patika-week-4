@@ -5,13 +5,12 @@ import 'dotenv/config'
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import expressMySqlSession from "express-mysql-session";
-const MySQLStore   = expressMySqlSession(session);
+const MySQLStore = expressMySqlSession(session);
 
 import mysql2 from 'mysql2/promise';
 
 import { options_local } from './config/conf';
-
-const app = express(); // Express type
+const app = express(); 
 
 //Middleware
 app.use(express.json())
@@ -22,8 +21,8 @@ app.use(cors({
 app.use(cookieParser())
 
 const TWO_HOURS = 1000 * 60 * 60 * 2;
-var connection = mysql2.createPool(options_local);
-var sessionStore = new MySQLStore({} , connection);
+let connection = mysql2.createPool(options_local);
+let sessionStore = new MySQLStore({} , connection);
 
 app.use(session({
 	key: 'sessionCookie',

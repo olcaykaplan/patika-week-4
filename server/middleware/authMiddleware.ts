@@ -1,11 +1,11 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User.js');
-require('dotenv').config();
+import { Request, Response, NextFunction } from "express";
+import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
-exports.checkUser = (req, res, next) => {
+export const checkUser = (req:Request, res:Response, next:NextFunction) => {
   const token = req.cookies.jwt;
   if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
+    jwt.verify(token, process.env.JWT_SECRET as string, async (err, decodedToken) => {
       if (err) {
         console.log('err: ', err);
         res.status(401).send({ error: true, message: 'You must login first!' });

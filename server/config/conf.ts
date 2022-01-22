@@ -1,7 +1,5 @@
 import 'dotenv/config';
 export const url_local = 'http://localhost:3000/';
-
-
 interface DB_OPTIONS {
   host: string;
   user: string;
@@ -14,3 +12,4 @@ export const options_local : DB_OPTIONS  = {
     database: process.env.DB_NAME || '',
     password: process.env.DB_PASSWORD || '',
 }
+
