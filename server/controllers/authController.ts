@@ -75,10 +75,11 @@ export const createUser = async (req: Request, res: Response) => {
           // create jwt here || data will contains user ıd, browser info and local info
           // multiply 1000 to convert to second to millisecond
           let userCreated = await user.save();
+          let findUser = await user.findUserByID(userCreated[0].insertId)
           req.session.userID = userCreated[0].insertId;
           req.session.userAgent = req.headers["user-agent"] as string;
           const token = createJWT({
-            fullName: userCreated[0].fullName,
+            fullName: findUser[0].fullName,
             userID: userCreated[0].insertId,
             userAgent: req.headers["user-agent"],
           });

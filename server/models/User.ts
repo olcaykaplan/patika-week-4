@@ -43,7 +43,7 @@ class User {
     let query = `SELECT * FROM user WHERE id = '${id}';`;
     const [data, _] = await db.query(query) ;
     console.log("data[0]: ",typeof data, " | ",data)
-    return data
+    return data;
   }
   async findUserByEmail(email: string) {
     let query = `SELECT * FROM user WHERE email = "${email}";`;
