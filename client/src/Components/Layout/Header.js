@@ -30,7 +30,7 @@ const Header = () => {
   const pages = isAuthenticated
     ? [
         { title: 'User List', path: '/users' },
-        { title: 'Blog', path: '/blog' },
+        // { title: 'Blog', path: '/blog' },
       ]
     : [
         { title: 'Sign In', path: '/signin' },
@@ -67,7 +67,7 @@ const Header = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            PICA
+            <Link to='/' style={{textDecoration:"none", color:"white"}}> PICA</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
