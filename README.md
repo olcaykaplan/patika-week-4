@@ -1,4 +1,7 @@
-# Ödev | Kullanıcı Kayıt Uygulaması : 
+# Week 3 Ödev | Kullanıcı Kayıt Uygulamasını Typescript Çevirme
+
+NodeJS tarafındaki js dosyaları typescript çevrildi.
+# WEEK 2 Ödev | Kullanıcı Kayıt Uygulaması : 
 	Kullanıcı : 
 		adı //name,
 		soyadı,//surname
