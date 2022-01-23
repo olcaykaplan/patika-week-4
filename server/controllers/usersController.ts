@@ -1,6 +1,7 @@
-const User = require('../models/User');
+import { Request, Response } from "express";
+import User from '../models/User';
 
-exports.getUsers = async (req, res) => {
+export const getUsers = async (req:Request, res:Response) => {
     try {
       let users = await User.findAll();
       console.log("users",users[0])
