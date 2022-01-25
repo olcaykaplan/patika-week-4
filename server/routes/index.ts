@@ -1,10 +1,13 @@
-import express from 'express'
+import express from 'express';
+
+import authApi from "./auth.routes";
+import userApi from "./user.routes";
+import postApi from './post.routes';
+
 const router = express.Router();
 
-import authApi from "./auth"
-import userActionsApi from "./userActions"
-
 router.use(authApi);
-router.use(userActionsApi);
+router.use(userApi);
+router.use(postApi);
 
 export = router;

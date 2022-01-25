@@ -4,7 +4,7 @@
   "description": "blog-pica backend project",
   "main": "app.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only app.ts",
+    "start": "nodemon app.ts",
     "build": "rm -rf ./dist && tsc"
   },
   "author": "OLCAY KAPLAN",
@@ -16,9 +16,12 @@
     "dotenv": "^10.0.0",
     "express-mysql-session": "^2.1.7",
     "express-session": "^1.17.2",
+    "express-validation": "^3.0.8",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
