@@ -30,22 +30,22 @@ Also, create an JWT_Secret info, it is required in the project.
 ![signup](./client/public/readmeImg/signup.png)
 
 ## Home Page After Login
-![signup](./client/public/readmeImg/homepage-after-login.png)
+![homepage after login](./client/public/readmeImg/homepage-after-login.png)
 
 ## User List Page
-![signup](./client/public/readmeImg/user-list-page.png)
+![user list page](./client/public/readmeImg/user-list-page.png)
 
 ## Discover Page
-![signup](./client/public/readmeImg/discover-page.png)
+![discvoer page](./client/public/readmeImg/discover-page.png)
 
 ## User Posts
-![signup](./client/public/readmeImg/userPosts.png)
+![user posts](./client/public/readmeImg/userPosts.png)
 
 ## Post
-![signup](./client/public/readmeImg/post.png)
+![post](./client/public/readmeImg/post.png)
 
 ## Create Post
-![signup](./client/public/readmeImg/createPost.png)
+![create post](./client/public/readmeImg/createPost.png)
 
 ## Update Post
-![signup](./client/public/readmeImg/update-own-page.png)
+![upadadte post](./client/public/readmeImg/update-own-post.png)
