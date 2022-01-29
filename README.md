@@ -1,28 +1,51 @@
-# Week 3 Ödev | Kullanıcı Kayıt Uygulamasını Typescript Çevirme
+# 4. Assigments: 
+This is an Blog website which user can make a register to website and login.
+After login, user can create own posts and read other users posts.
+User can delete and edit own posts.
 
-NodeJS tarafındaki js dosyaları typescript çevrildi.
-# WEEK 2 Ödev | Kullanıcı Kayıt Uygulaması : 
-	Kullanıcı : 
-		adı //name,
-		soyadı,//surname
-		kullanıcıAdı,//userName
-		şifre//password
-	Kullanıcılar register olacak, register olan kullanıcılar mongodb de tutulacak
-	Kayıtlı olan kullanıcı login olabilecek, login olan kullanıcının login olduğu browser bilgisi sessionda tutulacak ve kullanıcıya jwt token return edilecek, kullanıcının authni hem jwt tokendan hemde sessiondan aynı browser üzerinden mi geldi diye kontrol edilecek sonrasında yapmak istediği işlemler için bu kontrolleri geçmesi gerekecek. 
-	Kullanıcılar listelenecek
+## Tech
+Frontend: React, Axios, Redux
+Backend: NodeJS, Express, TypeScript, TypeORM, MySQL, JWT
 
-## Kurulum
-npm sürümü 14^
+
+## Setup
+npm version 14^
 ## Client
-client dizini altında npm install komutu ile ihtiyaç duyulan paketler indirilmeli
-npm start komutu ile client tarafı çalıştırılabilir.
-## Server
-server klasörü dizini altında npm install ile ihtiyaç duyulan paketler indirilmeli 
-MySQL bilgileri girilmeli
-* DB_HOST
-* DB_USER
-* DB_NAME
-* DB_PASSWORD
+Under client folder directory run this comment "npm install"
+After all needed packages donwload, run "npm start" to run client side project.
 
-JWT_SECRET ve SESSION_SECRET bilgileri de  boş bırakılmamalı
-sonrasında  npm start komutu ile sunucu tarafı ayağa kaldırılabilir
+## Server
+Under client folder directory run this comment "npm install".
+DB connections information is required in the ormconfig.js file. Before running the project you need to enter your connection info in the file. 
+
+Also, create an JWT_Secret info, it is required in the project. 
+
+
+## Home Page
+![home page](./client/public/readmeImg/homepage.png)
+
+## Sign in Page
+![sign in](./client/public/readmeImg/sign-in-page.png)
+## Signup Page
+![signup](./client/public/readmeImg/signup.png)
+
+## Home Page After Login
+![signup](./client/public/readmeImg/homepage-after-login.png)
+
+## User List Page
+![signup](./client/public/readmeImg/user-list-page.png)
+
+## Discover Page
+![signup](./client/public/readmeImg/discover-page.png)
+
+## User Posts
+![signup](./client/public/readmeImg/userPosts.png)
+
+## Post
+![signup](./client/public/readmeImg/post.png)
+
+## Create Post
+![signup](./client/public/readmeImg/createPost.png)
+
+## Update Post
+![signup](./client/public/readmeImg/update-own-page.png)

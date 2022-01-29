@@ -32,6 +32,14 @@ const UpdatePost = ({}) => {
       console.log()
       dispatch(fetchPostByID(postID))
   }, [postID])
+  /*
+  I have a logic problem in this page; User can see edit option only for user's own posts.
+  But in this page you can reach other posts by url params.
+  If you change params value with other user's post id, you can see Information of this post.
+This is not an acceptable error even I provide this check if this post belongs to the user on the server-side.  
+  */
+ 
+  
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12} md={12} xl={12}>

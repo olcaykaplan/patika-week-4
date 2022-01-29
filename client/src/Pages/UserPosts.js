@@ -29,7 +29,7 @@ const UserPosts = () => {
       <Container maxWidth="lg">
         <main>
           <Typography variant="h5" gutterBottom textAlign="center" mt={4}>
-            New Posts
+            User Posts
           </Typography>
          
           <Grid container spacing={5} sx={{ mt: 3 }} justifyContent="space-between">
