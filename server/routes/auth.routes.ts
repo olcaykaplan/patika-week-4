@@ -5,5 +5,5 @@ const router = express.Router();
 router.get("/api/logout", Logout);
 router.post("/api/signin", Login);
 router.post("/api/signup", CreateUser);
-router.post("/api/user-auth", checkUserAuth, AuthenticatedUser);
+router.get("/api/user-auth", checkUserAuth, AuthenticatedUser);
 export = router;

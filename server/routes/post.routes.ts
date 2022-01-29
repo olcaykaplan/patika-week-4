@@ -1,5 +1,5 @@
 import express from 'express';
-import {CreatePost, DeletePost, UpdatePost, GetPostsByID, GetAllPosts} from '../controllers/post.controller'
+import {CreatePost, DeletePost, UpdatePost, GetPostsByID, GetPostsByUserID, GetAllPosts} from '../controllers/post.controller'
 import {checkUserAuth} from '../middleware/auth.middleware';
 import {checkPostUser} from '../middleware/post-user.middleware';
 
@@ -10,7 +10,7 @@ router.put('/api/post/:id', checkUserAuth, checkPostUser, UpdatePost)
 
 router.get('/api/post/:id', checkUserAuth, GetPostsByID)
 router.get('/api/posts', checkUserAuth, GetAllPosts)
-
+router.get('/api/user/post/:id', checkUserAuth, GetPostsByUserID)
 
 
 export = router;

@@ -4,9 +4,10 @@ import cors from "cors";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
 import { createConnection } from "typeorm";
+import {options_local} from "./config/conf"
 
-
-createConnection().then((connection) => {
+createConnection(
+).then((connection) => {
   const app = express();
   //Middleware
   app.use(express.json());

@@ -18,6 +18,7 @@ const UpdatePost = ({}) => {
   const dispatch = useDispatch()
   const {post}  = useSelector((state) => state.post);
   const {postID} = useParams()
+  console.log("post",post)
   const handleSubmit = (event)=>{
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -25,7 +26,7 @@ const UpdatePost = ({}) => {
           title: data.get('title'),
           content: data.get('content'),
         };
-    dispatch(updatePost(postData))    
+    dispatch(updatePost(postID,postData))    
   }
   useEffect(() => {
       console.log()

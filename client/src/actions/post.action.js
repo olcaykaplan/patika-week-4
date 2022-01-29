@@ -20,7 +20,7 @@ export const deletePost = (id) => async (dispatch) => {
 export const updatePost = (id, postData) => async (dispatch) => {
     try {
         const { data } = await api.updatePost(id, postData)
-        console.log("updatePost",data);
+        console.log("updatePost",postData);
         window.location.replace(`/post/${id}`)
     } catch (error) {
         console.log(error)

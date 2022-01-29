@@ -5,8 +5,7 @@ import { passportHashed } from "../utils/helper";
 
 export const Users = async (req: Request, res: Response) => {
     try {
-        const repository = getManager().getRepository(User)
-        const users = await repository.find();
+        const users = await User.find();
         const usersResponse = users.map(user => {
             const {password, ...data} = user
             return data;
@@ -20,9 +19,8 @@ export const Users = async (req: Request, res: Response) => {
 
 export const ChangePassword = async (req: Request, res: Response) => {
     try {
-        const repository = getManager().getRepository(User);
         const hashedPassword = await passportHashed(req.body.password);
-        const passwordUpdate = await repository.update(req["user"].id, {
+        const passwordUpdate = await User.update(req["user"].id, {
             password: hashedPassword
         })
         console.log("passwordUpdate",passwordUpdate)
@@ -34,8 +32,7 @@ export const ChangePassword = async (req: Request, res: Response) => {
 
 export const UpdateInformation = async (req: Request, res: Response) => {
 try {
-    const repository = getManager().getRepository(User);
-    const userUpdate = await repository.update(req["user"].id, {
+    const userUpdate = await User.update(req["user"].id, {
         ...req.body
     })
     console.log("userUpdate",userUpdate)

@@ -1,16 +1,16 @@
 import {
+  BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from "typeorm";
 import { User } from "./user.entity";
 
 @Entity({ name: "posts" })
-export class Post {
+export class Post extends BaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 

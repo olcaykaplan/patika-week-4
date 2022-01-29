@@ -14,7 +14,6 @@ export const checkUserAuth = async (req: Request, res: Response, next: NextFunct
     if (!(payloadOfJWT.userAgent === req.headers["user-agent"])){
       return res.status(401).send({ error: true, message: "You made this request on a different browser." });
     }
-    
     const repository = getManager().getRepository(User);
     // get the user from db, declare into req["user"] to use for the next function
     req["user"] = await repository.findOne({email:payloadOfJWT.email})

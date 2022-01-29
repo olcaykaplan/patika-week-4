@@ -10,13 +10,14 @@ const TWO_HOURS = 1000 * 60 * 60 * 2;
 
 
 export const AuthenticatedUser = async (req: Request, res: Response) => {
-        res.send({user: req["user"].fullName}); 
+      const {fullName, email, id} = req["user"]
+        res.send({user: {fullName, email ,id}}); 
 }
 
 export const CreateUser = async (req: Request, res: Response) => {
   try {
     const body = req.body;
-
+    console.log("body",body)
     const { error } = RegisterValidation.validate(body);
     // if: validation error exist for register body
     if (error) {
@@ -31,9 +32,8 @@ export const CreateUser = async (req: Request, res: Response) => {
           message: "Password doesn't match with password confirm field!",
         });
       }
-      const repository = getManager().getRepository(User);
 
-      const isEmailExist = await repository.findOne({ email: req.body.email });
+      const isEmailExist = await User.findOne({ email: req.body.email });
       // if: body.email already exist in db.
       if (isEmailExist) {
        return res.status(400).send({ error: true, message: "The email is already exist!" });
@@ -41,7 +41,7 @@ export const CreateUser = async (req: Request, res: Response) => {
 
       // create user
       const hashedPassword = await passportHashed(body.password);
-      const { password, ...user } = await repository.save({
+      const { password, ...user } = await User.save({
         ...body,
         password: hashedPassword,
       });
@@ -70,8 +70,7 @@ export const Login = async (req: Request, res: Response) => {
     // find user with the email and if its exist compare password
     // if everything is okay let the user login
     const { email, password } = req.body;
-    const repository = getManager().getRepository(User);
-    const user = await repository.findOne({ email });
+    const user = await User.findOne({ email });
     console.log("user", user);
     if (user) {
       // CHECK user's hashed password and passing password are matched

@@ -10,7 +10,8 @@ export const checkPostUser = async (req: Request, res: Response, next: NextFunct
         const repository = getManager().getRepository(Post);
     
         const post = await repository.findOne(postID, {relations: ['user']} );
-    
+        console.log("postID",postID)
+        console.log("post",post)
         if (!post) {
           return res.status(400).send({ error: true, message: "Post couldn't find." });
         }
