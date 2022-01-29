@@ -1,7 +1,7 @@
 import { USER_LIST } from '../utils/constant';
 
 var DEFAULT_STATE = {
-  userList: []
+  userList: [],
 };
 
 const userActionReducer = (state = DEFAULT_STATE, action) => {
@@ -9,7 +9,7 @@ const userActionReducer = (state = DEFAULT_STATE, action) => {
     case USER_LIST:
       return {
         ...state,
-        userList: action.data.userList && action.data.userList,
+        userList: action.data && action.data,
       };
     default:
       return state;

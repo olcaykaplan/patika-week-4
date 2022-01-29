@@ -25,7 +25,6 @@ export default function SignInSide({ isFormSignIn }) {
   const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(isFormSignIn);
   const {isAuthenticated, errorMessage} = useSelector((state) => state.auth);
-  console.log("isAuthenticated",isAuthenticated)
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

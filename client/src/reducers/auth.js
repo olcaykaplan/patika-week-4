@@ -7,7 +7,7 @@ import {
   
   var DEFAULT_STATE = {
         isAuthenticated:false,
-        fullName:'',
+        user:{},
         errorMessage: ''
   }
 
@@ -18,7 +18,7 @@ import {
       return {
         ...state, 
         isAuthenticated: action.data.user && true,
-        fullName: action.data.user && action.data.user
+        user: action.data.user
       }
       case LOGOUT:
         localStorage.clear();

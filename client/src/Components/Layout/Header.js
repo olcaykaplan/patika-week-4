@@ -21,7 +21,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const {isAuthenticated, fullName} = useSelector((state) => state.auth);
+  const {isAuthenticated, user} = useSelector((state) => state.auth);
   const settings = [
     { title: 'Profile', action: 'profile' },
     { title: 'Logout', action: logout },
@@ -29,7 +29,9 @@ const Header = () => {
   const pages = isAuthenticated
     ? [
         { title: 'User List', path: '/users' },
-        // { title: 'Blog', path: '/blog' },
+        { title: 'Discover', path: '/posts' },
+        { title: 'Create Post', path: '/post/create-new-post'},
+        { title: 'Your Posts', path: `/user/posts/${user.id}`},
       ]
     : [
         { title: 'Sign In', path: '/signin' },
@@ -142,7 +144,7 @@ const Header = () => {
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar
-                    alt={fullName}
+                    alt={user.fullName.toUpperCase()}
                     src="/static/images/avatar/2.jpg"
                   />
                 </IconButton>
@@ -163,12 +165,12 @@ const Header = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <MenuItem key={fullName} onClick={handleCloseNavMenu}>
+                <MenuItem key={user.fullName} onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
                       variant="subtitle2"
                     >
-                      {fullName}
+                      {user.fullName}
                     </Typography>
                   </MenuItem>
                   <hr/>

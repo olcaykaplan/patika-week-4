@@ -8,8 +8,8 @@ const Home = () => {
       container
       item    
       justify="center"
-      style={{
-        height: '85vh',
+      style={{  
+        height:"100%",      
         backgroundImage: `url("${bgImage}")`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
